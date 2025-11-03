@@ -8,11 +8,12 @@ namespace MVCLibrary_Team.Data
         public BaseDataModel()
         {
             Books = new List<Book>();
-            Users = new List<Member>();
+            Members = new List<Member>();
             Borrows = new List<Borrow>();
         }
         public List<Book> Books { get; set; }
-        public List<Member> Users { get; set; }
+        public List<Member> Members { get; set; }
         public List<Borrow> Borrows { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }
