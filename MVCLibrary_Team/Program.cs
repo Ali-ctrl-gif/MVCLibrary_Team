@@ -28,6 +28,7 @@ if (!app.Environment.IsDevelopment())
 //    SeedData.InitializeUser(baseData);
 //    SeedData.InitializeBook(baseData);
 //    SeedData.InitializeBorrow(baseData);
+//    SeedData.InitializeCategory(baseData);
 //}
 
 app.UseHttpsRedirection();

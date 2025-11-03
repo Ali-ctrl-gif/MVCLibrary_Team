@@ -102,6 +102,19 @@ namespace MVCLibrary_Team.Data
                 }
             );
         }
+        public static void InitializeCategory(IBaseDataModel repository)
+        {
+            if (repository.Categories.Any())
+            {
+                return;
+            }
+            repository.Categories.Add(
+                new Category
+                {
+                    Title = "Learning"
+                }
+            );
+        }
     }
 }
 
