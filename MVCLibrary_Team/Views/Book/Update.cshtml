@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Book
+<form asp-action="Update" asp-controller="Book" asp-route-id="@Model.Id" method="post">
+    <div class="mb-4">
+        <label for="Title" class="form-label">Title</label>
+        <input type="text" name="Title" class="form-control" id="Title" aria-describedby="emailHelp" value="@Model.Title">
+    </div>
+    <div class="mb-4">
+        <label for="Author" class="form-label">Author</label>
+        <input type="text" name="Author" class="form-control" id="Author" value="@Model.Author">
+    </div>
+    <div class="mb-4">
+        <label for="Year" class="form-label">Year</label>
+        <input type="number" name="Year" class="form-control" id="Year" value="@Model.Year">
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

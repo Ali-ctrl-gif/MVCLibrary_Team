@@ -1,13 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVCLibrary_Team.Data;
 using MVCLibrary_Team.Models;
 
 namespace MVCLibrary_Team.Controllers
 {
     public class BookController : Controller
     {
+        private readonly BookRepository repository;
+        public BookController(IRepository<Book> baseDataModel)
+        {
+            repository = baseDataModel as BookRepository;
+        }
         public IActionResult Index()
         {
-            return View();
+            return View(repository.GetAll());
         }
         [HttpGet]
         public IActionResult Create()
@@ -17,24 +23,24 @@ namespace MVCLibrary_Team.Controllers
         [HttpPost]
         public IActionResult Create(Book book)
         {
-            bookRepository.Create(book);
+            repository.Add(book);
             return RedirectToAction("Index");
         }
         public IActionResult Delete(int id)
         {
-            bookRepository.Delete(bookRepository.GetById(id));
+            repository.Delete(repository.GetById(id));
             return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult Update(int id)
         {
-            var model = bookRepository.GetById(id);
+            var model = repository.GetById(id);
             return View(model);
         }
         [HttpPost]
         public IActionResult Update(Book book, int id)
         {
-            bookRepository.Update(book, id);
+            repository.Update(book, id);
             return RedirectToAction("Index");
         }
     }
