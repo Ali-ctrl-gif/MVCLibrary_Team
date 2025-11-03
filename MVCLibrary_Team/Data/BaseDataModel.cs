@@ -10,6 +10,7 @@ namespace MVCLibrary_Team.Data
             Books = new List<Book>();
             Members = new List<Member>();
             Borrows = new List<Borrow>();
+            Categories = new List<Category>();
         }
         public List<Book> Books { get; set; }
         public List<Member> Members { get; set; }
