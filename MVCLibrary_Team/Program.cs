@@ -9,7 +9,13 @@ builder.Services.AddSingleton<IBaseDataModel, BaseDataModel>();
 builder.Services.AddScoped<IRepository<Book>, BookRepository>();
 builder.Services.AddScoped<IRepository<Member>, MemberRepository>();
 builder.Services.AddScoped<IRepository<Borrow>, BorrowRepository>();
-builder.Services.AddScoped<IRepository<Category>, CategoryRepository>();
+builder.Services.AddSingleton<IRepository<Borrow>, BorrowRepository>();
+
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -38,6 +44,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
