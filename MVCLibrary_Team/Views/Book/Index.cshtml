@@ -30,7 +30,7 @@
         <th>Category</th> 
         <th>Action</th>
     </tr>
-    @foreach (var item in Model)
+    @foreach (var item in Model.Where(x => x.IsDeleted == false))
     {
         <tr>
             <td>@item.Title</td>
