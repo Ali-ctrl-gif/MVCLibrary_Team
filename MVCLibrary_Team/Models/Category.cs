@@ -9,6 +9,7 @@
         public Category()
         {
             Id = _nextId++;
+            IsDeleted = false;
         }
     }
 }

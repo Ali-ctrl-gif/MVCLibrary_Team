@@ -9,6 +9,10 @@ namespace MVCLibrary_Team.Data
         public CategoryRepository(IBaseDataModel baseDataModel)
         {
             this.baseDataModel = baseDataModel;
+            foreach (var book in baseDataModel.Books)
+            {
+                book.Category = baseDataModel.Categories.Find(x => x.Id == book.CategoryId);
+            }
         }
         public void Add(Category item) => baseDataModel.Categories.Add(item);
         public void Remove(Category item) => baseDataModel.Categories.Remove(item);

@@ -9,6 +9,7 @@
         public string? Author { get; set; }
         public string? Year { get; set; }
         public bool IsAvailable { get; set; }
+        public Category? Category { get; set; }
         public bool IsDeleted { get; set; } public bool IsLocked { get; set; }
         public Book()
         {

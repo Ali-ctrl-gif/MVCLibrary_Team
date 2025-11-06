@@ -27,7 +27,7 @@
         <th>Name</th>
         <th>Author</th>
         <th>Year</th>
-        @* <th>Type</th> *@
+        <th>Category</th> 
         <th>Action</th>
     </tr>
     @foreach (var item in Model)
@@ -36,7 +36,7 @@
             <td>@item.Title</td>
             <td>@item.Author</td>
             <td>@item.Year</td>
-            @* <td>@item.BookGenre</td> *@
+            <td>@item.Category.Title</td> 
             <td>
                 <a asp-action="Update" asp-route-Id="@item.Id">Update</a>
                 <a asp-action="Delete" asp-route-Id="@item.Id">Delete</a>
