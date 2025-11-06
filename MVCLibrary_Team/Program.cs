@@ -9,8 +9,7 @@ builder.Services.AddSingleton<IBaseDataModel, BaseDataModel>();
 builder.Services.AddScoped<IRepository<Book>, BookRepository>();
 builder.Services.AddScoped<IRepository<Member>, MemberRepository>();
 builder.Services.AddScoped<IRepository<Borrow>, BorrowRepository>();
-builder.Services.AddSingleton<IRepository<Borrow>, BorrowRepository>();
-
+builder.Services.AddScoped<IRepository<Category>, CategoryRepository>();
 
 builder.Services.AddDistributedMemoryCache();
 
