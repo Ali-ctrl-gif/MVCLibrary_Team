@@ -10,6 +10,11 @@ builder.Services.AddScoped<IRepository<Book>, BookRepository>();
 builder.Services.AddScoped<IRepository<Member>, MemberRepository>();
 builder.Services.AddScoped<IRepository<Borrow>, BorrowRepository>();
 
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,6 +42,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
