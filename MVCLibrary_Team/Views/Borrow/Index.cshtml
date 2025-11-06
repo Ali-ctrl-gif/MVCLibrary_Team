@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MVCLibrary_Team.Models.Borrow>
+
+<h2>Borrow List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>BookId</th>
+            <th>UserId</th>
+            <th>BorrowDate</th>
+            <th>ReturnDate</th>
+            <th>IsReturned</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.BookId</td>
+                <td>@item.UserId</td>
+                <td>@item.BorrowDate.ToShortDateString()</td>
+                <td>@(item.ReturnDate?.ToShortDateString() ?? "-")</td>
+                <td>@(item.IsReturned ? "Yes" : "No")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="/Borrow/Add">Add New Borrow</a>
